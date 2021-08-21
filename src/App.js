@@ -27,15 +27,20 @@ function Pokemon(props) {
 
   // const { }
   return (
-    <div style={{ width: '100%', backgroundColor: 'lightblue' }}>
-      {data.name}
-      {data.height}
+    <div style={{ width: '100%', display:'flex', justifyContent:'space-evenly',alignItems:'center'}}>
+      <div>
+        <h2>{data.name.toUpperCase()}</h2>
+        <h2>Height: {data.height}</h2>
+        <h2>Weight: {data.weight}</h2>
+      </div>
+      <div>
       <img
         src={getPokemonImageFromData(data)}
         width={300}
         alt={'poke ball'}
         height={300}
       />
+      </div>
     </div>
   );
 }
@@ -93,10 +98,20 @@ function PokemonPage() {
   }
 
   return (
-    <>
-      <h1>More data for {params.name}</h1>
+    <div style={{
+      border: '10px solid black',
+      boxShadow: '5px 5px 5px lightblue',
+      borderRadius: '25px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding:'3px',
+      backgroundColor:'lightgreen',
+      margin:'50px',
+    }}>
+      {/* <h1>{params.name.toUpperCase()}</h1> */}
       <Pokemon data={pokemonData} />
-    </>
+    </div>
   );
 }
 

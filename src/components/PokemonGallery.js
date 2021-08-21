@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Button from '@material-ui/core/Button';
 import { sampleSize } from 'lodash';
-import { makeStyles } from '@material-ui/core/styles';
 import './component.css'
-import { pink } from '@material-ui/core/colors';
+import { Favorite } from '../components/Favorite';
+
 
 function GalleryItem(props) {
   const { children, pokemonName } = props;
@@ -23,8 +23,8 @@ function GalleryItem(props) {
     <div className="galleryCell"
       style={{
         border: '1px solid lightblue',
-        boxShadow: '0 0 5px lightblue',
-        borderRadius: '5px',
+        boxShadow: '5px 5px 5px brown',
+        borderRadius: '1vw',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -39,6 +39,7 @@ function GalleryItem(props) {
         style={{ height: '50px', flexGrow: 2 }}
         alt="i'll come back to it"
       ></img>
+      
       <Button
         onClick={function () {
           if (!isInLocalStorage) {
@@ -62,9 +63,9 @@ function GalleryItem(props) {
             // arr.push(pokemonName);
             const i = arr.indexOf(pokemonName);
             arr.splice(i,1);
-            if(!arr.length){setIsInLocalStorage(false)};
             const stringifiedArray = JSON.stringify(arr);
             localStorage.setItem(key, stringifiedArray);
+            setIsInLocalStorage(false);
             // alert(`${pokemonName} is removed from Favorite List`);
           }
         }}
@@ -76,6 +77,7 @@ function GalleryItem(props) {
     </div>
   );
 }
+
 
 function PokemonGallery() {
   const randomPokemonsStatic = pokemons.slice(0, 4);
@@ -96,7 +98,11 @@ function PokemonGallery() {
         const { name } = pokemon;
         return (
           <GalleryItem key={name} pokemonName={name}>
-            <Link to={'/pokemon/' + name}>{name.toUpperCase()}</Link>
+            <Link to={'/pokemon/' + name} 
+            style={{textDecoration:'none', 
+            color:'black',
+            fontFamily:'"Helvetica Neue"',
+            fontWeight:'bold'}}>{name.[0].toUpperCase() + name.substr(1)}</Link>
           </GalleryItem>
         );
       })}

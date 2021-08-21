@@ -12,8 +12,7 @@ function HomePage() {
   const [selection, setSelection] = useState(null);
   return (
     <>
-      <h1>Search</h1>
-      <div style={{ marginTop: '10px', display: 'flex', marginBottom:'10px' }}>
+      <div style={{ marginTop: '15px', display: 'flex', marginBottom:'10px' }}>
         <Autocomplete
           id="combo-box-demo"
           options={pokemons}

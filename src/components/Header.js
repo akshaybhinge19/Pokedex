@@ -1,5 +1,6 @@
-import shadows from "@material-ui/core/styles/shadows";
-import { makeStyles } from '@material-ui/core/styles';
+import {Link } from 'react-router-dom';
+import '../App.css';
+
 
 function Header() {
   return (
@@ -16,12 +17,12 @@ function Header() {
         fontFamily:'-apple-system'
       }}
     >
-      <img
+      <img className='mainImage'
         src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png"
         alt="poke ball"
         height="75px"
       />{' '}
-      <h1>My Pokedex</h1>
+      <Link to='/' style={{textDecoration:'none'}}><h1>My Pokedex</h1></Link>      
     </header>
   );
 }
